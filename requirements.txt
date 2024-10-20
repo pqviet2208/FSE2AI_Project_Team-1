@@ -1,0 +1,10 @@
+# # Transformers for the translation model
+transformers==4.45.2
+
+# Torch for PyTorch (required by transformers)
+torch==2.5.0
+
+# Optional, if you use numpy (for numerical operations)
+numpy==1.21.2
+
+# Unittest for running the tests (if not built-in in your Python environment)
