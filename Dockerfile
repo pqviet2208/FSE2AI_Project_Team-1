@@ -16,7 +16,7 @@ RUN python3 -m venv /python
 
 # Set the working directory inside the container
 WORKDIR /app
-
+RUN mkdir -p /app/input_raw /app/input /app/output_raw /app/output
 
 # Install Python dependencies
 # RUN python -m pip install --upgrade pip
@@ -31,10 +31,10 @@ RUN echo "source /python/bin/activate" > /root/.profile && echo "source /python/
 #RUN bash -c "source /python/bin/activate; make -f Makefile.docker build"
 #RUN bash -c "source /python/bin/activate; make -f Makefile.docker test"
 RUN bash -l -c "make -f Makefile.docker prereqs"
-RUN bash -l -c "make -f Makefile.docker build"
+#RUN bash -l -c "make -f Makefile.docker build"
 RUN bash -l -c "make -f Makefile.docker test"
 #RUN make -f Makefile.docker prereqs
 #RUN make -f Makefile.docker build
 #RUN make -f Makefile.docker test
 
-CMD bash -l -c "make run"
+#CMD bash -l -c "make run"

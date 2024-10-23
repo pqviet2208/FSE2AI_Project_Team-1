@@ -1,15 +1,42 @@
-test:
-	python3 test/test_preprocessing.py
-	python3 test/test_processing.py
-	python3 test/test_postprocessing.py
-# Install dependencies
+# Variables for directory paths
+INPUT_RAW = $(pwd)/input_raw
+INPUT = $(pwd)/input
+OUTPUT_RAW = $(pwd)/output_raw
+OUTPUT = $(pwd)/output
+
+DOCKER_IMAGE = translator
+
+# Target to install prerequisites (if any)
+.PHONY: prereqs
 prereqs:
-	python3 -m pip  install --upgrade pip
-	pip  install -r requirements.txt
-	python3 -m py_compile src/preprocessing.py 
+	@echo "Installing prerequisites..."
+	python3 -m pip install --upgrade pip
+	pip install -r requirements.txt
+	# Example: apt-get install dependencies or pip install requirements
+	# Add the prerequisite commands here if needed
+	# Example: pip install -r requirements.txt
+	# Uncomment if you have any specific setup
 
-# Build step (if needed)
-build:
-	python3 -m py_compile src/processing.py 
+# Target to run the Docker container with the correct mounts
+.PHONY: run
+run:
+	@echo "Running Docker container for translation..."
+	docker run -v $(INPUT_RAW):/app/input_raw \
+	           -v $(INPUT):/app/input \
+	           -v $(OUTPUT_RAW):/app/output_raw \
+	           -v $(OUTPUT):/app/output \
+	           $(DOCKER_IMAGE)
 
-# Run all tests
+# Target to test the application (if required)
+.PHONY: test
+test:
+	@echo "Running tests inside Docker container..."
+	docker run $(DOCKER_IMAGE) pytest
+
+# Optional: clean up the directories if needed
+.PHONY: clean
+clean:
+	@echo "Cleaning up output directories..."
+	rm -rf $(OUTPUT_RAW)/*
+	rm -rf $(OUTPUT)/*
+
