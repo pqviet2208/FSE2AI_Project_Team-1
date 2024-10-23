@@ -19,8 +19,7 @@ postprocess:
 	python src/postprocessing.py --input output_raw --output output
 
 # Run full pipeline (preprocess -> process -> postprocess)
-run:
-	preprocess process postprocess
+run: preprocess process postprocess
 
 # Run all tests
 test:
