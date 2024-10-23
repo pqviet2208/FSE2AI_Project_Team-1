@@ -2,8 +2,7 @@ import os
 import argparse
 
 def preprocess_text(input_dir, output_dir):
-    if not os.path.exists(output_dir):
-        os.makedirs(output_dir)
+    os.makedirs(output_dir, exist_ok=True)
     
     for file_name in os.listdir(input_dir):
         with open(os.path.join(input_dir, file_name), 'r', encoding='utf-8') as f:

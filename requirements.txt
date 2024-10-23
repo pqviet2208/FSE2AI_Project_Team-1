@@ -5,6 +5,7 @@ transformers==4.45.2
 torch==2.5.0
 
 # Optional, if you use numpy (for numerical operations)
-numpy==1.21.2
+numpy
 
-# Unittest for running the tests (if not built-in in your Python environment)
+# Needded by translater
+sentencepiece
