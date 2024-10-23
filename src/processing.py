@@ -19,7 +19,7 @@ def translate_text(input_dir, output_dir):
             with open(os.path.join(output_dir, file_name), 'w', encoding='utf-8') as out_f:
                 out_f.write(ru_tran)
 
-if name == "main":
+if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Translate text from English to Russian")
     parser.add_argument('--input', required=True, help="Input directory with preprocessed text files")
     parser.add_argument('--output', required=True, help="Output directory for translated text files")

@@ -7,10 +7,11 @@ FROM  ubuntu:24.04
 
 # Set environment variables to avoid issues with buffer or input output handling
 ENV PYTHONUNBUFFERED=1
+ENV HOME=/root
 
 RUN apt update && apt install -y bash  make git curl ca-certificates build-essential gcc vim python3 python3-pip python3-venv
 
-RUN python3 -m venv /python # && source /python/bin/activate
+RUN python3 -m venv /python
 
 
 # Set the working directory inside the container
@@ -23,9 +24,17 @@ WORKDIR /app
 # Copy the rest of the project files into the container
 COPY . .
 
-# Run the pipeline using the main Makefile
-RUN bash -c "source /python/bin/activate; make -f Makefile.docker prereqs"
-RUN bash -c "source /python/bin/activate; make -f Makefile.docker build"
-RUN bash -c "source /python/bin/activate; make -f Makefile.docker test"
+RUN echo "source /python/bin/activate" > /root/.profile && echo "source /python/bin/activate" > /root/.bashrc
 
-CMD ["make", "run"]
+# Run the pipeline using the main Makefile
+#RUN bash -c "source /python/bin/activate; make -f Makefile.docker prereqs"
+#RUN bash -c "source /python/bin/activate; make -f Makefile.docker build"
+#RUN bash -c "source /python/bin/activate; make -f Makefile.docker test"
+RUN bash -l -c "make -f Makefile.docker prereqs"
+RUN bash -l -c "make -f Makefile.docker build"
+RUN bash -l -c "make -f Makefile.docker test"
+#RUN make -f Makefile.docker prereqs
+#RUN make -f Makefile.docker build
+#RUN make -f Makefile.docker test
+
+CMD bash -l -c "make run"

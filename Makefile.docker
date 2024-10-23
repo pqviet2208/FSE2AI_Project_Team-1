@@ -4,11 +4,12 @@ test:
 	python3 test/test_postprocessing.py
 # Install dependencies
 prereqs:
-	pip  install --upgrade pip
+	python3 -m pip  install --upgrade pip
 	pip  install -r requirements.txt
+	python3 -m py_compile src/preprocessing.py 
 
 # Build step (if needed)
 build:
-	echo "Nothing to build for now"
+	python3 -m py_compile src/processing.py 
 
 # Run all tests
