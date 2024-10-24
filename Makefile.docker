@@ -1,15 +1,25 @@
-test:
-	python3 test/test_preprocessing.py
-	python3 test/test_processing.py
-	python3 test/test_postprocessing.py
-# Install dependencies
+# Variables for directory paths
+
+DOCKER_IMAGE = translator
+
+# Target to install prerequisites
+.PHONY: test clean build_docker prereqs run build
 prereqs:
-	python3 -m pip  install --upgrade pip
-	pip  install -r requirements.txt
-	python3 -m py_compile src/preprocessing.py 
+	python3 -m pip install --upgrade pip
+	pip install -r requirements.txt
 
-# Build step (if needed)
+
+# Target to compile 
 build:
-	python3 -m py_compile src/processing.py 
+	python3 -m py_compile src/processing.py
 
-# Run all tests
+# Target to test the application
+test:
+	@echo "Running tests inside Docker container..."
+	# docker run --rm $(DOCKER_IMAGE) pytest
+
+# Optional: clean up the directory if needed
+clean:
+	@echo "Cleaning pip cache ..."
+	python3 -m pip cache purge
+

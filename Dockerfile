@@ -1,8 +1,7 @@
 #!/usr/bin/env -S docker build -t translator  .  --file
 
 
-# Use Python 3.9 as the base image
-# FROM python:3.9-slim
+# Use clean UBUNTU 24.04  as the base image
 FROM  ubuntu:24.04
 
 # Set environment variables to avoid issues with buffer or input output handling
@@ -13,28 +12,19 @@ RUN apt update && apt install -y bash  make git curl ca-certificates build-essen
 
 RUN python3 -m venv /python
 
-
 # Set the working directory inside the container
 WORKDIR /app
 
-
-# Install Python dependencies
-# RUN python -m pip install --upgrade pip
-
 # Copy the rest of the project files into the container
 COPY . .
+COPY Makefile.inside_docker Makefile
 
 RUN echo "source /python/bin/activate" > /root/.profile && echo "source /python/bin/activate" > /root/.bashrc
 
 # Run the pipeline using the main Makefile
-#RUN bash -c "source /python/bin/activate; make -f Makefile.docker prereqs"
-#RUN bash -c "source /python/bin/activate; make -f Makefile.docker build"
-#RUN bash -c "source /python/bin/activate; make -f Makefile.docker test"
 RUN bash -l -c "make -f Makefile.docker prereqs"
 RUN bash -l -c "make -f Makefile.docker build"
+RUN bash -l -c "make -f Makefile.docker clean"
 RUN bash -l -c "make -f Makefile.docker test"
-#RUN make -f Makefile.docker prereqs
-#RUN make -f Makefile.docker build
-#RUN make -f Makefile.docker test
 
 CMD bash -l -c "make run"

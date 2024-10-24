@@ -7,6 +7,9 @@ torch==2.5.0
 # Optional, if you use numpy (for numerical operations)
 numpy
 
-# Needded by translater
+# Needed by translater
 sacremoses
 sentencepiece
+
+# Needed for test
+pytest
