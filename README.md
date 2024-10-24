@@ -27,6 +27,14 @@ This project provides a pipeline for translating text from English to Russian us
 
 ### Using Docker
 
+ 0. First, Clone the repository to your local machine
+    ```bash
+    github clone https://github.com/pqviet2208/FSE2AI_Project_Team-1.git
+    ```
+    ```bash
+    cd FSE2AI_Project_Team-1
+    ```
+
 1. Build the Docker image:
     ```bash
     docker build -t translation_pipeline .
