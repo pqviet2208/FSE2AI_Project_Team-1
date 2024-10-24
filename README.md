@@ -14,6 +14,13 @@ This project provides a pipeline for translating text from English to Russian us
 ## How to Run
 
 ### Locally
+- First, Clone the repository to your local machine
+    ```bash
+    github clone https://github.com/pqviet2208/FSE2AI_Project_Team-1.git
+    ```
+    ```bash
+    cd FSE2AI_Project_Team-1
+    ```
 
 1. Install the required dependencies:
     ```bash
@@ -27,7 +34,7 @@ This project provides a pipeline for translating text from English to Russian us
 
 ### Using Docker
 
- 0. First, Clone the repository to your local machine
+- First, Clone the repository to your local machine
     ```bash
     github clone https://github.com/pqviet2208/FSE2AI_Project_Team-1.git
     ```
@@ -57,7 +64,8 @@ make test
 -  Script for the preprocessing step. Takes raw input data and processes it into a format suitable for translation.
 
 > [processing.py](https://github.com/pqviet2208/FSE2AI_Project_Team-1/blob/main/src/processing.py)`
-- Script for the processing (translation) step. Translates the preprocessed data using the MarianMTModel
+- Script for the processing (translation) step. Translates the preprocessed data using the **MarianMTModel**
+- https://huggingface.co/docs/transformers/en/model_doc/marian
 
 > [postprocessing.py](https://github.com/pqviet2208/FSE2AI_Project_Team-1/blob/main/src/postprocessing.py)`
 - Postprocesses translated text files by applying custom formatting or other modifications
