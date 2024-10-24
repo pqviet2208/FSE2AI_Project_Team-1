@@ -50,4 +50,20 @@ This project provides a pipeline for translating text from English to Russian us
 Run the following command to execute all tests:
 ```bash
 make test
+```
+
+## Source Directory is separated into 4 files:
+> [preprocessing.py](https://github.com/pqviet2208/FSE2AI_Project_Team-1/blob/main/src/preprocessing.py)`
+-  Script for the preprocessing step. Takes raw input data and processes it into a format suitable for translation.
+
+> [processing.py](https://github.com/pqviet2208/FSE2AI_Project_Team-1/blob/main/src/processing.py)`
+- Script for the processing (translation) step. Translates the preprocessed data using the MarianMTModel
+
+> [postprocessing.py](https://github.com/pqviet2208/FSE2AI_Project_Team-1/blob/main/src/postprocessing.py)`
+- Postprocesses translated text files by applying custom formatting or other modifications
+
+> [translator.py](https://github.com/pqviet2208/FSE2AI_Project_Team-1/blob/main/src/translator.py)`
+
+
+
 
