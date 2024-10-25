@@ -25,6 +25,13 @@ This project provides a pipeline for translating text from English to Russian us
 <!-- - At least **python 3.12.0** -->
 
 
+- **Note:** <br />
+ You will have a [**data directory**](https://github.com/pqviet2208/FSE2AI_Project_Team-1/tree/main/data) for inputting text. 
+We have put for you some default data to translate, <br /> 
+you can remove all files from data directory and put in `.txt` files .
+ <br /> (Note that only `.txt` file will work)
+
+
 ## How to Run
 
 ### Locally
@@ -126,6 +133,8 @@ make test
 
 - **Output data**: *"Когда-то было королевство с волшебным лесом, в лесу была маленькая лягушка
 "*
+
+
 
 
 
