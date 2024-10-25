@@ -1,4 +1,8 @@
-# # Transformers for the translation model
+# Must-have
+numpy
+torch
+
+# Transformers for the translation model
 transformers==4.45.2
 
 # Needed by translator
