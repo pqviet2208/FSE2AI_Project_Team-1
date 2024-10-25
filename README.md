@@ -4,6 +4,14 @@ Topic: Application for Translation using Neural Network
 
 Authors: QuocViet Pham, Svetlana Pavlova, Thanakrit Lerdmatayakul
 
+## Table of Contents 
+
+ - [Project Overview](#Project-Overview)
+ - [Prerequisites](#Prerequisites)
+ - [How to run](#How-to-Run)
+ - [How to test](#How-to-Test) 
+ - [Source Files](#Source-Directory-is-separated-into-3-files)
+
 ---
 # English to Russian Translation
 
