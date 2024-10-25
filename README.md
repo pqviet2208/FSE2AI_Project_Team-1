@@ -44,13 +44,14 @@ This project provides a pipeline for translating text from English to Russian us
 
 1. Build the Docker image:
     ```bash
-    docker build -t translation_pipeline .
+    make build
     ```
 
-2. Run the Docker container:
+2. To run the app:
     ```bash
-    docker run translation_pipeline
+    make run
     ```
+    Note: wait for some time for the model to run
 
 ## How to Test
 
@@ -61,16 +62,16 @@ make test
 
 ## Source Directory is separated into 4 files:
 > [preprocessing.py](https://github.com/pqviet2208/FSE2AI_Project_Team-1/blob/main/src/preprocessing.py)`
--  Script for the preprocessing step. Takes raw input data and processes it into a format suitable for translation.
+  Takes raw input data and processes it into a format suitable for translation.
+- Check if the files in the data folder has .txt extention
+- verify the utf-8 format to get rid of any broken symbols and remove them
 
 > [processing.py](https://github.com/pqviet2208/FSE2AI_Project_Team-1/blob/main/src/processing.py)`
 - Script for the processing (translation) step. Translates the preprocessed data using the **MarianMTModel**
 - https://huggingface.co/docs/transformers/en/model_doc/marian
 
 > [postprocessing.py](https://github.com/pqviet2208/FSE2AI_Project_Team-1/blob/main/src/postprocessing.py)`
-- Postprocesses translated text files by applying custom formatting or other modifications
-
-> [translator.py](https://github.com/pqviet2208/FSE2AI_Project_Team-1/blob/main/src/translator.py)`
+- Capitalize the first letter in the text file and merge input text with translated text into one file
 
 
 
