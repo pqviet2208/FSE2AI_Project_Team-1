@@ -128,10 +128,14 @@ make test
 > [**postprocessing.py**](https://github.com/pqviet2208/FSE2AI_Project_Team-1/blob/main/src/postprocessing.py)`
 - Capitalize the first letter in the text file and merge input text with translated text into one file
 
-## Example usage:
-- **Input data**: *"Once there was a kingdom with magical forest. In the forest there was a little frog."*
+## Example:
+- **Input data**: 
+ <br /> *"Once there was a kingdom with magical forest. In the forest there was a little frog."*
 
-- **Output data**: *"Когда-то было королевство с волшебным лесом, в лесу была маленькая лягушка
+- **Output data**: 
+ <br /> *"Once there was a kingdom with magical forest. In the forest there was a little frog. 
+ <br /> -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+ <br /> Когда-то было королевство с волшебным лесом, в лесу была маленькая лягушка
 "*
 
 
