@@ -39,23 +39,31 @@ This project provides a pipeline for translating text from English to Russian us
 1. Install the required dependencies:
     ```bash
     python3 -m pip install -r requirements.txt
+    ```
     or
+   ```bash
     python -m pip install -r requirements.txt
+   ```
     or
+   ```bash
     pip install -r requirements.txt
     ```
 
-2. Compile the C++ code:
+3. Compile the C++ code:
     ```bash
     (cd src/cpp_utils && make )
     ```
     
-3. Run all tests:
+4. Run all tests:
     ```bash
     python3 -m pytest test/test_*.py
+    ```
     or
+   ```bash
     python -m pytest test/test_*.py
-    or
+   ```
+   or
+   ```bash
     pytest test/test_*.py
     ```
     
@@ -63,6 +71,10 @@ This project provides a pipeline for translating text from English to Russian us
     ```bash
     make run -f Makefile.inside_docker
     ```
+4. Clean output directory:
+   ```bash
+   make clean
+   ```
 
 ### Using Docker
 
@@ -84,6 +96,11 @@ This project provides a pipeline for translating text from English to Russian us
     make run
     ```
     Note: wait for some time for the model to run
+
+3. To clean output directory:
+   ```bash
+   make clean
+   ```
 
 ## How to Test
 
