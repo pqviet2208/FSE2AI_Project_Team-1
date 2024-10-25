@@ -14,6 +14,7 @@ This project provides a pipeline for translating text from English to Russian us
 ## Prerequisites
 - Docker is based on fresh ubuntu 24.04 
 - Requires ~10GB of free disk space for image building, minimum 4G free RAM for smooth work. Internet connection is requered to run the app.
+<!-- - At least **python 3.12.0** -->
 
 
 ## How to Run
@@ -65,7 +66,7 @@ Run the following command to execute all tests:
 make test
 ```
 
-## Source Directory is separated into 4 files:
+## Source Directory is separated into 3 files:
 > [**preprocessing.py**](https://github.com/pqviet2208/FSE2AI_Project_Team-1/blob/main/src/preprocessing.py)`
 - Check if the files in the data folder has .txt extention
 - verify the utf-8 format to get rid of any broken symbols and remove them
