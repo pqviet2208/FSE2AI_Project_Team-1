@@ -11,6 +11,11 @@ Authors: QuocViet Pham, Svetlana Pavlova, Thanakrit Lerdmatayakul
 
 This project provides a pipeline for translating text from English to Russian using a pretrained model. It includes preprocessing, processing (translation), and postprocessing steps.
 
+## Prerequisites
+- Docker is based on fresh ubuntu 24.04 
+- Requires ~10GB of free disk space for image building, minimum 4G free RAM for smooth work. Internet connection is requered to run the app.
+
+
 ## How to Run
 
 ### Locally
@@ -61,17 +66,23 @@ make test
 ```
 
 ## Source Directory is separated into 4 files:
-> [preprocessing.py](https://github.com/pqviet2208/FSE2AI_Project_Team-1/blob/main/src/preprocessing.py)`
-  Takes raw input data and processes it into a format suitable for translation.
+> [**preprocessing.py**](https://github.com/pqviet2208/FSE2AI_Project_Team-1/blob/main/src/preprocessing.py)`
 - Check if the files in the data folder has .txt extention
 - verify the utf-8 format to get rid of any broken symbols and remove them
 
-> [processing.py](https://github.com/pqviet2208/FSE2AI_Project_Team-1/blob/main/src/processing.py)`
+> [**processing.py**](https://github.com/pqviet2208/FSE2AI_Project_Team-1/blob/main/src/processing.py)`
 - Script for the processing (translation) step. Translates the preprocessed data using the **MarianMTModel**
 - https://huggingface.co/docs/transformers/en/model_doc/marian
 
-> [postprocessing.py](https://github.com/pqviet2208/FSE2AI_Project_Team-1/blob/main/src/postprocessing.py)`
+> [**postprocessing.py**](https://github.com/pqviet2208/FSE2AI_Project_Team-1/blob/main/src/postprocessing.py)`
 - Capitalize the first letter in the text file and merge input text with translated text into one file
+
+## Example usage:
+- **Input data**: *"Once there was a kingdom with magical forest. In the forest there was a little frog."*
+
+- **Output data**: *"Когда-то было королевство с волшебным лесом, в лесу была маленькая лягушка
+"*
+
 
 
 
