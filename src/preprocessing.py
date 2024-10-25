@@ -1,22 +1,13 @@
 import os
 import argparse
 
-def preprocess_text(input_dir, output_dir):
-    os.makedirs(output_dir, exist_ok=True)
-    
-    for file_name in os.listdir(input_dir):
-        with open(os.path.join(input_dir, file_name), 'r', encoding='utf-8') as f:
-            text = f.read().strip().lower()
-            clean_text = ' '.join(text.split())
-            with open(os.path.join(output_dir, file_name), 'w', encoding='utf-8') as out_f:
-                out_f.write(clean_text)
 
 def preprocess_text(input_dir, output_dir):
     os.makedirs(output_dir, exist_ok=True)
     
     for file_name in os.listdir(input_dir):
         if not file_name.endswith(".txt"):
-            print("Bad file")
+            print(f"There is a bad file in the data directory: {file_name}. File must be in txt extention")
             continue
         fn = os.path.join(input_dir, file_name)
         out_fn = os.path.join(output_dir, file_name)
