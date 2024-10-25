@@ -18,7 +18,7 @@ build:
 # Target to test the application
 test:
 	@echo "Running tests inside Docker container..."
-	# docker run --rm $(DOCKER_IMAGE) pytest
+	docker run --rm $(DOCKER_IMAGE) bash -l -c "pytest test/test_*.py"
 
 # Optional: clean up the directory if needed
 clean:

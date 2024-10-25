@@ -26,7 +26,7 @@ COPY Makefile.inside_docker Makefile
 RUN bash -l -c "make -f Makefile.docker prereqs"
 RUN bash -l -c "make -f Makefile.docker build"
 RUN bash -l -c "make -f Makefile.docker clean"
-RUN bash -l -c "make -f Makefile.docker test"
+#RUN bash -l -c "make -f Makefile.docker test"
 
 CMD bash -l -c "make run"
 
