@@ -1,15 +1,10 @@
 # # Transformers for the translation model
 transformers==4.45.2
-
-# Torch for PyTorch (required by transformers)
 torch==2.5.0
 
-# Optional, if you use numpy (for numerical operations)
-numpy
-
-# Needed by translater
-sacremoses
-sentencepiece
+# Needed by translator
+sacremoses==0.1.1
+sentencepiece==0.2.0
 
 # Needed for test
-pytest
+pytest==8.3.3
