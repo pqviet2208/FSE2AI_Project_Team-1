@@ -22,7 +22,7 @@ This project provides a pipeline for translating text from English to Russian us
 ### Locally
 - First, Clone the repository to your local machine
     ```bash
-    github clone https://github.com/pqviet2208/FSE2AI_Project_Team-1.git
+    git clone https://github.com/pqviet2208/FSE2AI_Project_Team-1.git
     ```
     ```bash
     cd FSE2AI_Project_Team-1
@@ -30,12 +30,30 @@ This project provides a pipeline for translating text from English to Russian us
 
 1. Install the required dependencies:
     ```bash
+    python3 -m pip install -r requirements.txt
+    or
+    python -m pip install -r requirements.txt
+    or
     pip install -r requirements.txt
     ```
 
-2. Run the pipeline:
+2. Compile the C++ code:
     ```bash
-    make run
+    (cd src/cpp_utils && make )
+    ```
+    
+3. Run all tests:
+    ```bash
+    python3 -m pytest test/test_*.py
+    or
+    python -m pytest test/test_*.py
+    or
+    pytest test/test_*.py
+    ```
+    
+3. Run translation pipeline:
+    ```bash
+    make run -f Makefile.inside_docker
     ```
 
 ### Using Docker
