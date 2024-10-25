@@ -1,6 +1,5 @@
 # # Transformers for the translation model
 transformers==4.45.2
-torch==2.5.0
 
 # Needed by translator
 sacremoses==0.1.1
