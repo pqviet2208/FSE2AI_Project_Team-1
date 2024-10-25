@@ -2,7 +2,7 @@
 
 # Run preprocessing step
 preprocess:
-	python3 src/preprocessing.py --input input_raw --output input
+	python3 src/preprocessing.py --input data --output input
 
 # Run processing (translation) step
 process:
@@ -10,7 +10,7 @@ process:
 
 # Run postprocessing step
 postprocess:
-	python3 src/postprocessing.py --input output_raw --output output
+	python3 src/postprocessing.py --raw input --input output_raw --output output
 
 # Run full pipeline (preprocess -> process -> postprocess)
 run: preprocess process postprocess

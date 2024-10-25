@@ -1,6 +1,7 @@
 # Variables for directory paths
 
 DOCKER_IMAGE = translator
+MAKE = make
 
 # Target to install prerequisites
 .PHONY: test clean build_docker prereqs run build
@@ -11,15 +12,17 @@ prereqs:
 
 # Target to compile 
 build:
-	python3 -m py_compile src/processing.py
+	@echo "Compiling..."
+	cd src/cpp_utils && $(MAKE)
 
 # Target to test the application
 test:
 	@echo "Running tests inside Docker container..."
-	# docker run --rm $(DOCKER_IMAGE) pytest
+	docker run --rm $(DOCKER_IMAGE) bash -l -c "pytest test/test_*.py"
 
 # Optional: clean up the directory if needed
 clean:
 	@echo "Cleaning pip cache ..."
 	python3 -m pip cache purge
+
 
