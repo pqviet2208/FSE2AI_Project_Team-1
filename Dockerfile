@@ -8,10 +8,12 @@ FROM  ubuntu:24.04
 ENV PYTHONUNBUFFERED=1
 ENV HOME=/root
 
-RUN apt update && apt install -y bash  make git curl ca-certificates build-essential gcc vim python3 python3-pip python3-venv
+RUN apt update && apt install -y bash  make git curl ca-certificates build-essential gcc vim python3 python3-pip python3-venv pkg-config libglib2.0-dev
 
 RUN python3 -m venv /python
+RUN echo "source /python/bin/activate" > /root/.profile && echo "source /python/bin/activate" > /root/.bashrc
 
+RUN bash -l -c "python3 -m pip install  torch==2.5.0"
 # Set the working directory inside the container
 WORKDIR /app
 
@@ -19,7 +21,6 @@ WORKDIR /app
 COPY . .
 COPY Makefile.inside_docker Makefile
 
-RUN echo "source /python/bin/activate" > /root/.profile && echo "source /python/bin/activate" > /root/.bashrc
 
 # Run the pipeline using the main Makefile
 RUN bash -l -c "make -f Makefile.docker prereqs"
@@ -28,3 +29,4 @@ RUN bash -l -c "make -f Makefile.docker clean"
 RUN bash -l -c "make -f Makefile.docker test"
 
 CMD bash -l -c "make run"
+

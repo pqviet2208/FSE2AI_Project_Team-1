@@ -1,11 +1,11 @@
 ifeq ($(OS),Windows_NT)
-	INPUT_RAW = %cd%\input_raw
+	INPUT_RAW = %cd%\data
 	OUTPUT = %cd%\output
 	/ := \\
 	RM = del
 else
-	INPUT_RAW = `pwd`/input_raw
-	OUTPUT = `pwd`/output
+	INPUT_RAW = $(shell pwd)/data
+	OUTPUT = $(shell pwd)/output
 	/ := /
 	RM = rm -fr
 endif
@@ -19,8 +19,10 @@ DOCKER_IMAGE = translator
 # Target to run the Docker container with the correct mounts
 run:
 	@echo "Running Docker container for translation..."
-	docker run --rm -v $(INPUT_RAW):/app/input_raw \
-	           -v $(OUTPUT):/app/output \
+	docker run --rm -v $(INPUT_RAW):/app/data \
+			 #  -v $(shell pwd)/input:/app/input 
+	          # -v $(shell pwd)/output_raw:/app/output_raw 
+				-v $(OUTPUT):/app/output \
 	           $(DOCKER_IMAGE)
 
 build:
